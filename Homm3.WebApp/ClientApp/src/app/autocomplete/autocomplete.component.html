@@ -1,0 +1,18 @@
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>{{autocompleteLabel}}</mat-label>
+  <input matInput
+         [matAutocomplete]="auto"
+         [formControl]="autocompleteControl">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let value of filteredValues | async" [value]="value">
+      <span>
+        {{ value}}
+      </span>
+    </mat-option>
+  </mat-autocomplete>
+  <button matSuffix mat-icon-button aria-label="Delete" (click)="deleteMapObject()">
+    <mat-icon class="delete-btn">
+      delete_forever
+    </mat-icon>
+  </button>
+</mat-form-field>
